@@ -1,5 +1,6 @@
 import React from 'react';
-import Chip from '../components/Chip/Chip';
+import Chip from '../components/Chip';
+import Button from '../components/Button';
 import './App.css';
 
 const skills = [
@@ -20,9 +21,16 @@ const skills = [
 function App() {
   return (
     <div className="App">
-      {skills.map(skill => (
-        <Chip close>{skill.title}</Chip>
-      ))}
+      <div>
+        {skills.map(skill => (
+          <Chip close>{skill.title}</Chip>
+        ))}
+      </div>
+
+      <div>
+        <Button>Continue</Button>
+        <Button flat>Cancel</Button>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,27 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  margin: 6px 8px;
+  padding: 0 16px;
+  height: 36px;
+  background: #1867c0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #3887e0;
+}
+
+.button.flat {
+  color: inherit;
+  background: transparent;
+}
+
+.button.flat:hover {
+  background: #ccc;
+}
