@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './TextField.module.css';
 
 const TextField = props => {
+  const { placeholder } = props;
   const [hasFocus, setHasFocus] = useState(false);
 
   const className = [styles.textField];
@@ -13,12 +15,20 @@ const TextField = props => {
       <input
         type="text"
         className={styles.input}
-        placeholder={props.placeholder}
+        placeholder={placeholder}
         onFocus={() => setHasFocus(true)}
         onBlur={() => setHasFocus(false)}
       />
     </div>
   );
+};
+
+TextField.propTypes = {
+  placeholder: PropTypes.string,
+};
+
+TextField.defaultProps = {
+  placeholder: '',
 };
 
 export default TextField;
