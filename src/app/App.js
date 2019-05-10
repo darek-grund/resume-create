@@ -4,6 +4,7 @@ import Chip from '../components/Chip';
 import Button from '../components/Button';
 import TextField from '../components/TextField';
 import TextArea from '../components/TextArea';
+import './assets/styles/bootstrap.scss';
 import './App.css';
 
 const skills = [
@@ -26,30 +27,39 @@ const skills = [
 
 function App() {
   return (
-    <div className="App">
-      <Card>
-        <div>
-          {skills.map(skill => (
-            <Chip key={skill.id} close>
-              {skill.title}
-            </Chip>
-          ))}
-        </div>
+    <div className="App m-5">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-8 mx-auto">
+            <Card>
+              <div className="mb-5">
+                {skills.map(skill => (
+                  <Chip key={skill.id} close>
+                    {skill.title}
+                  </Chip>
+                ))}
+              </div>
 
-        <div>
-          <Button>Continue</Button>
-          <Button flat>Cancel</Button>
-        </div>
+              <div className="mb-5">
+                <Button>Continue</Button>
+                <Button flat>Cancel</Button>
+              </div>
 
-        <div>
-          <TextField placeholder="First Name" />
-          <TextField placeholder="Last Name" />
+              <div>
+                <div className="mb-4">
+                  <TextField placeholder="First Name" />
+                </div>
+                <div className="mb-4">
+                  <TextField placeholder="Last Name" />
+                </div>
+                <div>
+                  <TextArea placeholder="Share more details" />
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
-
-        <div>
-          <TextArea placeholder="Share more details" />
-        </div>
-      </Card>
+      </div>
     </div>
   );
 }
