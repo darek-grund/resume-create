@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Chip.module.css';
 
-const Index = props => {
+const Chip = props => {
   const { children, close } = props;
 
   return (
@@ -12,4 +13,14 @@ const Index = props => {
   );
 };
 
-export default Index;
+Chip.propTypes = {
+  children: PropTypes.node,
+  close: PropTypes.bool,
+};
+
+Chip.defaultProps = {
+  children: '',
+  close: false,
+};
+
+export default Chip;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Button.module.css';
 
 const Button = props => {
@@ -10,6 +11,16 @@ const Button = props => {
   }
 
   return <div className={className.join(' ')}>{children}</div>;
+};
+
+Button.propTypes = {
+  flat: PropTypes.bool,
+  children: PropTypes.node,
+};
+
+Button.defaultProps = {
+  flat: false,
+  children: '',
 };
 
 export default Button;

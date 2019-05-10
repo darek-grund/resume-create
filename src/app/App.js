@@ -1,7 +1,9 @@
 import React from 'react';
+import Card from '../components/Card';
 import Chip from '../components/Chip';
 import Button from '../components/Button';
 import TextField from '../components/TextField';
+import TextArea from '../components/TextArea';
 import './App.css';
 
 const skills = [
@@ -25,23 +27,29 @@ const skills = [
 function App() {
   return (
     <div className="App">
-      <div>
-        {skills.map(skill => (
-          <Chip key={skill.id} close>
-            {skill.title}
-          </Chip>
-        ))}
-      </div>
+      <Card>
+        <div>
+          {skills.map(skill => (
+            <Chip key={skill.id} close>
+              {skill.title}
+            </Chip>
+          ))}
+        </div>
 
-      <div>
-        <Button>Continue</Button>
-        <Button flat>Cancel</Button>
-      </div>
+        <div>
+          <Button>Continue</Button>
+          <Button flat>Cancel</Button>
+        </div>
 
-      <div>
-        <TextField placeholder="First Name" />
-        <TextField placeholder="Last Name" />
-      </div>
+        <div>
+          <TextField placeholder="First Name" />
+          <TextField placeholder="Last Name" />
+        </div>
+
+        <div>
+          <TextArea placeholder="Share more details" />
+        </div>
+      </Card>
     </div>
   );
 }
