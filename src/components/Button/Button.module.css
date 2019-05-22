@@ -1,7 +1,7 @@
 .button {
   display: inline-flex;
   align-items: center;
-  margin: 6px 8px;
+  margin: 0;
   padding: 0 16px;
   height: 36px;
   background: #1867c0;

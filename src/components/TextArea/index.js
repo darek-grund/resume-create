@@ -21,7 +21,7 @@ const TextArea = props => {
       <textarea
         className={styles.input}
         value={value}
-        onInput={event => setValue(event.target.value)}
+        onChange={event => setValue(event.target.value)}
         onFocus={() => setHasFocus(true)}
         onBlur={() => setHasFocus(false)}
       />
