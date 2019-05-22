@@ -37,3 +37,22 @@
   max-width: 100%;
   min-width: 0;
 }
+
+.label {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  transform-origin: top left;
+  white-space: nowrap;
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.textArea.focus .label {
+  transform: translateY(-18px) scale(0.75);
+  color: #1867c0;
+}
+
+.textArea.dirty .label {
+  transform: translateY(-18px) scale(0.75);
+}

@@ -24,7 +24,7 @@
 }
 
 .input {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   flex: 1 1 auto;
   height: 32px;
   font-size: 16px;
@@ -35,4 +35,23 @@
   width: 100%;
   max-width: 100%;
   min-width: 0;
+}
+
+.label {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  transform-origin: top left;
+  white-space: nowrap;
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.textField.focus .label {
+  transform: translateY(-18px) scale(0.75);
+  color: #1867c0;
+}
+
+.textField.dirty .label {
+  transform: translateY(-18px) scale(0.75);
 }
