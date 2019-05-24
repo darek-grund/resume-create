@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './TextArea.module.css';
+import { stringifyClassNames } from '../../utils/css-modules';
 
 const TextArea = props => {
   const { placeholder } = props;
   const [hasFocus, setHasFocus] = useState(false);
   const [value, setValue] = useState('');
 
-  const className = [styles.textArea];
+  const activeCssClasses = {
+    [styles.textArea]: true,
+    [styles.focus]: hasFocus,
+    [styles.dirty]: value,
+  };
 
-  if (hasFocus) {
-    className.push(styles.focus);
-  }
-  if (value) {
-    className.push(styles.dirty);
-  }
   return (
-    <div className={className.join(' ')}>
+    <div className={stringifyClassNames(activeCssClasses)}>
       <label className={styles.label}>{placeholder}</label>
       <textarea
         className={styles.input}
