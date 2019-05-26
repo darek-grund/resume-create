@@ -1,11 +1,14 @@
 import React from 'react';
 
+import ResumeBasicInformation from '../../containers/ResumeBasicInformation';
+
 import Card from '../../components/Card';
 import Chip from '../../components/Chip';
 import Button from '../../components/Button';
 import TextField from '../../components/TextField';
 import TextArea from '../../components/TextArea';
 
+// TODO - move to store
 const skills = [
   {
     id: 1,
@@ -29,22 +32,7 @@ const ResumeFormPage = () => {
     <div className="container">
       <div className="row">
         <div className="col-lg-8 mx-auto">
-          <Card>
-            <h2 className="mb-5">Basic information</h2>
-            <div className="mb-4">
-              <TextField placeholder="Full Name" />
-            </div>
-            <div className="mb-4">
-              <TextField placeholder="Phone" />
-            </div>
-            <div className="mb-4">
-              <TextField placeholder="E-mail" />
-            </div>
-            <div className="d-flex justify-content-end mb-4">
-              <Button>Save</Button>
-            </div>
-          </Card>
-
+          <ResumeBasicInformation />
           <Card>
             <h2 className="mb-5">Skills</h2>
             <div className="mb-4">

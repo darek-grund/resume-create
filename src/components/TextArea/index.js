@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from './TextArea.module.css';
 import { stringifyClassNames } from '../../utils/css-modules';
+import styles from './TextArea.module.css';
 
 const TextArea = props => {
   const { placeholder } = props;

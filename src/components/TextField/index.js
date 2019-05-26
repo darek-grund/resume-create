@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from './TextField.module.css';
 import { stringifyClassNames } from '../../utils/css-modules';
+import styles from './TextField.module.css';
 
 const TextField = props => {
-  const { placeholder } = props;
+  const { placeholder, defaultValue, onChangeCallback } = props;
   const [hasFocus, setHasFocus] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(defaultValue);
+
+  const handleChange = event => {
+    setValue(event.target.value);
+    onChangeCallback(event.target.value);
+  };
 
   const activeCssClasses = {
     [styles.textField]: true,
@@ -21,7 +26,7 @@ const TextField = props => {
         type="text"
         className={styles.input}
         value={value}
-        onChange={event => setValue(event.target.value)}
+        onChange={handleChange}
         onFocus={() => setHasFocus(true)}
         onBlur={() => setHasFocus(false)}
       />
@@ -31,10 +36,14 @@ const TextField = props => {
 
 TextField.propTypes = {
   placeholder: PropTypes.string,
+  defaultValue: PropTypes.string,
+  onChangeCallback: PropTypes.func,
 };
 
 TextField.defaultProps = {
   placeholder: '',
+  defaultValue: '',
+  onChangeCallback: () => {},
 };
 
 export default TextField;
