@@ -12,9 +12,13 @@ const Button = props => {
   };
 
   return (
-    <div className={stringifyClassNames(activeCssClasses)} onClick={onClickCallback}>
+    <button
+      type="button"
+      className={stringifyClassNames(activeCssClasses)}
+      onClick={onClickCallback}
+    >
       {children}
-    </div>
+    </button>
   );
 };
 

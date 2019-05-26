@@ -5,18 +5,18 @@ import Card from '../../components/Card';
 import TextField from '../../components/TextField';
 import Button from '../../components/Button';
 
-import { actions, selectors } from '../../store/counter';
+import { actions, selectors } from '../../store/resume';
 
-const ResumeBasicInformation = () => {
-  const [basicInformation, setBasicInformation] = useState({
-    fullName: 'dariuszxyz',
-    phone: '777',
-    email: 'a@a.pl',
-  });
+const ResumeBasicInformation = props => {
+  const {
+    storeBasicInformation,
+    actionUpdateBasicInformation,
+    storeFullName,
+    storePhone,
+    storeEmail,
+  } = props;
 
-  const handleSubmit = () => {
-    console.log(basicInformation);
-  };
+  const [basicInformation, setBasicInformation] = useState(storeBasicInformation);
 
   return (
     <Card>
@@ -24,49 +24,56 @@ const ResumeBasicInformation = () => {
       <div className="mb-4">
         <TextField
           placeholder="Full Name"
-          defaultValue={basicInformation.fullName}
+          defaultValue={storeFullName}
           onChangeCallback={fullName => setBasicInformation({ ...basicInformation, fullName })}
         />
       </div>
       <div className="mb-4">
         <TextField
           placeholder="Phone"
-          defaultValue={basicInformation.phone}
+          defaultValue={storePhone}
           onChangeCallback={phone => setBasicInformation({ ...basicInformation, phone })}
         />
       </div>
       <div className="mb-4">
         <TextField
           placeholder="E-mail"
-          defaultValue={basicInformation.email}
+          defaultValue={storeEmail}
           onChangeCallback={email => setBasicInformation({ ...basicInformation, email })}
         />
       </div>
       <div className="d-flex justify-content-end mb-4">
-        <Button onClickCallback={handleSubmit}>Save</Button>
+        <Button onClickCallback={() => actionUpdateBasicInformation(basicInformation)}>Save</Button>
       </div>
     </Card>
   );
 };
 
 ResumeBasicInformation.propTypes = {
-  /*  increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
-  count: PropTypes.number.isRequired,
-  getCount: PropTypes.func.isRequired,*/
+  storeBasicInformation: PropTypes.shape({
+    fullName: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }).isRequired,
+  storeFullName: PropTypes.string.isRequired,
+  storePhone: PropTypes.string.isRequired,
+  storeEmail: PropTypes.string.isRequired,
+  actionUpdateBasicInformation: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    /*    getCount: selectors.getCounterValue(state),
-    count: state.counter.count,*/
+    storeBasicInformation: selectors.getBasicInformation(state),
+    storeFullName: selectors.getFullName(state),
+    storePhone: selectors.getPhone(state),
+    storeEmail: selectors.getEmail(state),
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    /*    increment: value => dispatch(actions.increment(value)),
-    decrement: value => dispatch(actions.decrement(value)),*/
+    actionUpdateBasicInformation: basicInformation =>
+      dispatch(actions.updateBasicInformation(basicInformation)),
   };
 };
 

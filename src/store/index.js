@@ -1,19 +1,14 @@
 import { createStore, combineReducers } from 'redux';
-import counter from './counter';
+import resume from './resume';
+import { resume as resumeMock } from '../mocks/resume';
 
 const reducer = combineReducers({
-  counter,
+  resume,
 });
-
-const preloadedState = {
-  counter: {
-    count: 10,
-  },
-};
 
 export default createStore(
   reducer,
-  preloadedState,
+  { resume: resumeMock },
   // eslint-disable-next-line no-underscore-dangle
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
